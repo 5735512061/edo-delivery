@@ -1,0 +1,17 @@
+<script src="{{asset('backend/js/core/jquery.3.2.1.min.js')}}"></script>
+<script src="{{asset('backend/js/core/popper.min.js')}}"></script>
+<script src="{{asset('backend/js/core/bootstrap.min.js')}}"></script>
+<script src="{{asset('backend/js/plugin/jquery-ui-1.12.1.custom/jquery-ui.min.js')}}"></script>
+<script src="{{asset('backend/js/plugin/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js')}}"></script>
+<script src="{{asset('backend/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js')}}"></script>
+<script src="{{asset('backend/js/plugin/chart.js/chart.min.js')}}"></script>
+<script src="{{asset('backend/js/plugin/jquery.sparkline/jquery.sparkline.min.js')}}"></script>
+<script src="{{asset('backend/js/plugin/chart-circle/circles.min.js')}}"></script>
+<script src="{{asset('backend/js/plugin/datatables/datatables.min.js')}}"></script>
+<script src="{{asset('backend/js/plugin/bootstrap-notify/bootstrap-notify.min.js')}}"></script>
+<script src="{{asset('backend/js/plugin/jqvmap/jquery.vmap.min.js')}}"></script>
+<script src="{{asset('backend/js/plugin/jqvmap/maps/jquery.vmap.world.js')}}"></script>
+<script src="{{asset('backend/js/plugin/sweetalert/sweetalert.min.js')}}"></script>
+<script src="{{asset('backend/js/atlantis.min.js')}}"></script>
+<script src="{{asset('backend/js/setting-demo.js')}}"></script>
+{{-- <script src="{{asset('backend/js/demo.js')}}"></script> --}}
