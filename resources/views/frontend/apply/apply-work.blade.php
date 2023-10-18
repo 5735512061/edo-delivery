@@ -83,6 +83,7 @@
                 <label style="color: red;">*</label><label>สมัครงานในตำแหน่ง</label>
                 <select class="form-control" name="position" style="border-radius: 4px; margin:8px 0; font-family:'Mitr' !important;">
                   <option></option>
+                  <option>ผู้จัดการร้าน</option>
                   <option>เชฟ</option>
                   <option>ผู้ช่วยเชฟ</option>
                   <option>บาร์น้ำ</option>
