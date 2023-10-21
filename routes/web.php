@@ -201,8 +201,10 @@ Route::group(['prefix' => 'admin'], function(){
     Route::post('/create-coupon', 'Backend\AdminController@uploadCoupon');
 
     // ระบบสมัครงาน
-    Route::get('/apply-work','Backend\AdminController@applyWork');
+    Route::get('/apply-work/{url_name}','Backend\AdminController@applyWork');
     Route::get('/open-pdfResume/{id}','Backend\AdminController@openPdfResume');
+    Route::get('/url-apply-work','Backend\AdminController@urlApplyWork');
+    Route::post('/url-apply-work','Backend\AdminController@urlApplyWorkPost');
 
 });
 

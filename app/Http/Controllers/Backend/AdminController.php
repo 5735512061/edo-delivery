@@ -26,6 +26,7 @@ use App\model\ImageGallery;
 use App\model\Coupon;
 use App\model\SpecialMenu;
 use App\model\ApplyWork;
+use App\model\UrlApplyWork;
 
 use App\Customer;
 use App\Seller;
@@ -773,14 +774,31 @@ class AdminController extends Controller
         return back();
     }
 
-    public function applyWork(Request $request) {
+    public function applyWork(Request $request, $url_name) {
         $NUM_PAGE = 20;
-        $apply_works = ApplyWork::paginate($NUM_PAGE);
+        $branch_id = UrlApplyWork::where('url_name',$url_name)->value('id');
+        $apply_works = ApplyWork::where('branch_id',$branch_id)->paginate($NUM_PAGE);
         $page = $request->input('page');
         $page = ($page != null)?$page:1;
         return view('backend/admin/apply/apply-work')->with('NUM_PAGE',$NUM_PAGE)
                                                      ->with('page',$page)
                                                      ->with('apply_works',$apply_works);
+    }
+
+    public function urlApplyWork(Request $request) {
+        $NUM_PAGE = 20;
+        $url_apply_works = UrlApplyWork::paginate($NUM_PAGE);
+        $page = $request->input('page');
+        $page = ($page != null)?$page:1;
+        return view('backend/admin/apply/url-apply-work')->with('NUM_PAGE',$NUM_PAGE)
+                                                         ->with('page',$page)
+                                                         ->with('url_apply_works',$url_apply_works);
+    }
+
+    public function urlApplyWorkPost(Request $request){
+        $url = $request->all();
+        $url = UrlApplyWork::create($url);
+        return back();
     }
 
     public function openPdfResume($id) {
