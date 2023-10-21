@@ -29,6 +29,7 @@
                                     <tr>
                                         <th>#</th>
                                         <th>สาขาที่สมัคร</th>
+                                        <th>หมายเลขบัตรประชาชน</th>
                                         <th>ชื่อ-นามสกุล</th>
                                         <th>อายุ</th>
                                         <th>เบอร์โทรศัพท์</th>
@@ -43,15 +44,29 @@
                                             $branch_name = DB::table('url_apply_works')
                                                 ->where('id', $value->branch_id)
                                                 ->value('branch_name');
+                                            $count_unique = DB::table('apply_works')->where('card_id',$value->card_id)->groupBy('card_id')->count('card_id');
                                         @endphp
                                         <tr>
-                                            <td>{{ $NUM_PAGE * ($page - 1) + $apply_work + 1 }}</td>
-                                            <td>{{ $branch_name }}</td>
-                                            <td>{{ $value->name }} {{ $value->surname }}</td>
-                                            <td>{{ $value->age }} ปี</td>
-                                            <td>{{ $value->tel }}</td>
-                                            <td>{{ $value->position }}</td>
-                                            <td>{{ $value->salary }}</td>
+                                            @if($count_unique > 1)
+                                                <td style="color: red;">{{ $NUM_PAGE * ($page - 1) + $apply_work + 1 }}</td>
+                                                <td style="color: red;">{{ $branch_name }}</td>
+                                                <td style="color: red;">{{ $value->card_id }}</td>
+                                                <td style="color: red;">{{ $value->name }} {{ $value->surname }}</td>
+                                                <td style="color: red;">{{ $value->age }} ปี</td>
+                                                <td style="color: red;">{{ $value->tel }}</td>
+                                                <td style="color: red;">{{ $value->position }}</td>
+                                                <td style="color: red;">{{ $value->salary }}</td>
+                                            @else
+                                                <td>{{ $NUM_PAGE * ($page - 1) + $apply_work + 1 }}</td>
+                                                <td>{{ $branch_name }}</td>
+                                                <td>{{ $value->card_id }}</td>
+                                                <td>{{ $value->name }} {{ $value->surname }}</td>
+                                                <td>{{ $value->age }} ปี</td>
+                                                <td>{{ $value->tel }}</td>
+                                                <td>{{ $value->position }}</td>
+                                                <td>{{ $value->salary }}</td>
+                                            @endif
+                                            
                                             <td>
                                                 <a type="button" data-toggle="modal"
                                                     data-target="#ModalMore{{ $value->id }}" style="color:blue;">
