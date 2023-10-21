@@ -138,33 +138,40 @@ class EdoController extends Controller
     }
 
     public function applyWorkPost(Request $request) {
-        $apply_request = $request->all();
-        $apply = ApplyWork::create($apply_request);
-        if($request->hasFile('performance')){
-            $performance = $request->file('performance');
-            $filename = md5(($performance->getClientOriginalName(). time()) . time()) . "_o." . $performance->getClientOriginalExtension();
-            $performance->move('file_upload/performance/', $filename);
-            $path = 'file_upload/performance/'.$filename;
-            $apply->performance = $filename;
-            $apply->save();
+        $validator = Validator::make($request->all(), $this->rules_applyWorkPost(), $this->messages_applyWorkPost());
+        if($validator->passes()) {
+            $apply_request = $request->all();
+            $apply = ApplyWork::create($apply_request);
+            if($request->hasFile('performance')){
+                $performance = $request->file('performance');
+                $filename = md5(($performance->getClientOriginalName(). time()) . time()) . "_o." . $performance->getClientOriginalExtension();
+                $performance->move('file_upload/performance/', $filename);
+                $path = 'file_upload/performance/'.$filename;
+                $apply->performance = $filename;
+                $apply->save();
+            }
+            if($request->hasFile('facebook')){
+                $facebook = $request->file('facebook');
+                $filename = md5(($facebook->getClientOriginalName(). time()) . time()) . "_o." . $facebook->getClientOriginalExtension();
+                $facebook->move('file_upload/facebook/', $filename);
+                $path = 'file_upload/facebook/'.$filename;
+                $apply->facebook = $filename;
+                $apply->save();
+            }
+            if($request->hasFile('image')){
+                $image = $request->file('image');
+                $filename = md5(($image->getClientOriginalName(). time()) . time()) . "_o." . $image->getClientOriginalExtension();
+                $image->move('file_upload/image/', $filename);
+                $path = 'file_upload/image/'.$filename;
+                $apply->image = $filename;
+                $apply->save();
+            }
+            return view('frontend/apply/apply-success');
         }
-        if($request->hasFile('facebook')){
-            $facebook = $request->file('facebook');
-            $filename = md5(($facebook->getClientOriginalName(). time()) . time()) . "_o." . $facebook->getClientOriginalExtension();
-            $facebook->move('file_upload/facebook/', $filename);
-            $path = 'file_upload/facebook/'.$filename;
-            $apply->facebook = $filename;
-            $apply->save();
-        }
-        if($request->hasFile('image')){
-            $image = $request->file('image');
-            $filename = md5(($image->getClientOriginalName(). time()) . time()) . "_o." . $image->getClientOriginalExtension();
-            $image->move('file_upload/image/', $filename);
-            $path = 'file_upload/image/'.$filename;
-            $apply->image = $filename;
-            $apply->save();
-        }
-        return view('frontend/apply/apply-success');
+        else {
+                $request->session()->flash('alert-danger', 'ส่งใบสมัครไม่สำเร็จ กรุณาตรวจสอบข้อมูลให้ถูกต้องครบถ้วน');
+                return back()->withErrors($validator)->withInput(); 
+            }
     }
 
 
@@ -184,6 +191,36 @@ class EdoController extends Controller
             'tel.required' => 'กรุณากรอกหมายเลขโทรศัพท์',
             'subject.required' => 'กรุณากรอกหัวข้อเรื่องที่จะติดต่อ',
             'message.required' => 'กรุณากรอกข้อความที่ต้องการติดต่อ',
+        ];
+    }
+
+    public function rules_applyWorkPost() {
+        return [
+            'salary' => 'required',
+            'card_id' => 'required',
+            'name' => 'required',
+            'surname' => 'required',
+            'age' => 'required',
+            'tel' => 'required',
+            'history_work' => 'required',
+            'performance' => 'required',
+            'facebook' => 'required',
+            'image' => 'required',
+        ];
+    }
+
+    public function messages_applyWorkPost() {
+        return [
+            'salary.required' => 'กรุณากรอกเงินเดือนที่ต้องการ',
+            'card_id.required' => 'กรุณากรอกหมายเลขบัตรประชาชน',
+            'name.required' => 'กรุณากรอกชื่อผู้สมัคร',
+            'surname.required' => 'กรุณากรอกนามสกุลผู้สมัคร',
+            'age.required' => 'กรุณากรอกอายุ',
+            'tel.required' => 'กรุณากรอกเบอร์โทรศัพท์',
+            'history_work.required' => 'กรุณากรอกประวัติการทำงาน',
+            'performance.required' => 'กรุณาอัพโหลดไฟล์เอกสาร ผลงาน',
+            'facebook.required' => 'อัพโหลดรูปภาพหน้า Facebook ให้ติดชื่อเฟส',
+            'image.required' => 'กรุณาอัพโหลดรูปภาพปัจจุบัน',
         ];
     }
 }

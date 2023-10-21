@@ -9,7 +9,7 @@ class ApplyWork extends Model
     protected $table = 'apply_works';
 
     protected $fillable = [
-        'branch_name', 'position', 'salary', 'name', 'surname', 'age', 'tel', 'history_work', 'performance', 'facebook', 'image'
+        'branch_id', 'position', 'salary', 'name', 'surname', 'age', 'tel', 'history_work', 'performance', 'facebook', 'image', 'card_id'
     ];
     
     protected $primaryKey = 'id';
