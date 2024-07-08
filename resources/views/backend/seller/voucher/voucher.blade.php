@@ -1,4 +1,4 @@
-@extends("/backend/layouts/template/template-seller")
+@extends('/backend/layouts/template/template-seller')
 
 @section('content')
     <div class="panel-header bg-primary-gradient">
@@ -11,6 +11,31 @@
         </div>
     </div>
     <div class="page-inner">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <form action="{{ url('/seller/search-voucher') }}" enctype="multipart/form-data" method="post">@csrf
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="navbar-left navbar-form nav-search mr-md-3">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <button type="submit" class="btn btn-search pr-1">
+                                                    <i class="fa fa-search search-icon"></i>
+                                                </button>
+                                            </div>
+                                            <input id="ssn1" maxlength="19" minlength="19" type="text"
+                                                placeholder="ค้นหาหมายเลขคูปอง" class="form-control" name="serialnumber">
+                                        </div>
+                                    </div><br>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
@@ -38,11 +63,12 @@
                                             $branch = DB::table('stores')
                                                 ->where('id', $value->branch_id)
                                                 ->value('branch');
+                                            $amount_format = number_format($value->amount);
                                         @endphp
                                         <tr>
                                             <td>{{ $NUM_PAGE * ($page - 1) + $voucher + 1 }}</td>
                                             <td>{{ $value->serialnumber }}</td>
-                                            <td>{{ $value->amount }}</td>
+                                            <td>{{ $amount_format }}</td>
                                             <td>{{ $name }} {{ $branch }}</td>
                                             <td>{{ $value->created_at }}</td>
                                             <td>{{ $value->date }}</td>
@@ -66,7 +92,7 @@
                                                 <div class="modal-content">
                                                     <div class="modal-header">
                                                         <h5 class="modal-title" id="exampleModalLongTitle">
-                                                            แก้ไขคูปองเงินสด</h5>
+                                                            ยืนยันการใช้คูปองเงินสด</h5>
                                                     </div>
                                                     <form action="{{ url('/seller/update-voucher') }}"
                                                         enctype="multipart/form-data" method="post">@csrf
@@ -78,32 +104,20 @@
                                                                         aria-label="close">&times;</a></p>
                                                             @endif
                                                         @endforeach
-                                                        @php
-                                                            $serialnumber = $value->serialnumber;
-                                                            $creator = $value->creator;
-                                                            $status = $value->status;
-                                                            $id = $value->id;
-                                                            $amount = $value->amount;
-                                                        @endphp
                                                         <div class="row">
                                                             <div class="col-md-12">
                                                                 <div class="form-group">
-                                                                    @php
-                                                                        $stores = DB::table('stores')->get();
-                                                                    @endphp
                                                                     <label>ร้านค้า</label>
-                                                                    <select class="form-control" name="branch_id">
-                                                                        @foreach ($stores as $store => $value)
-                                                                            <option value="{{ $value->id }}">
-                                                                                {{ $value->name }} {{ $value->branch }}
-                                                                            </option>
-                                                                        @endforeach
-                                                                    </select>
+                                                                    <input type="text" class="form-control"
+                                                                        name="serialnumber"
+                                                                        value="{{ $name }} {{ $branch }}"
+                                                                        readonly>
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label>หมายเลขบัตร</label>
                                                                     <input type="text" class="form-control"
-                                                                        name="serialnumber" value="{{ $serialnumber }}">
+                                                                        name="serialnumber"
+                                                                        value="{{ $value->serialnumber }}" readonly>
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label>จำนวนเงิน (บาท)</label>
@@ -112,24 +126,14 @@
                                                                             style="font-size: 16px;">({{ $errors->first('amount') }})</span>
                                                                     @endif
                                                                     <input type="text" class="form-control"
-                                                                        name="amount" value="{{$amount}}">
+                                                                        name="amount" value="{{ $amount_format }}"
+                                                                        disabled>
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label>ผู้ออกคูปองส่วนลด</label>
                                                                     <input type="text" class="form-control"
-                                                                        name="creator" value="{{ $creator }}">
-                                                                </div>
-                                                                <div class="form-group">
-                                                                    <label>สถานะ</label>
-                                                                    <select class="form-control" name="status">
-                                                                        <option value="{{ $status }}">
-                                                                            {{ $status }}</option>
-                                                                        <option value="พร้อมใช้งาน">พร้อมใช้งาน</option>
-                                                                        <option value="ยังไม่เปิดใช้งาน">ยังไม่เปิดใช้งาน
-                                                                        </option>
-                                                                        <option value="ใช้งานแล้ว">ใช้งานแล้ว
-                                                                        </option>
-                                                                    </select>
+                                                                        name="creator" value="{{ $value->creator }}"
+                                                                        readonly>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -137,9 +141,10 @@
                                                             <div class="col-md-12">
                                                                 <div class="form-group">
                                                                     <input type="hidden" name="id"
-                                                                        value="{{ $id }}">
+                                                                        value="{{ $value->id }}">
+                                                                    <input type="hidden" name="status" value="ใช้งานแล้ว">
                                                                     <button type="submit"
-                                                                        class="btn btn-primary">อัพเดตข้อมูลคูปองเงินสด</button>
+                                                                        class="btn btn-primary">ยืนยันการใช้คูปองเงินสด</button>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -157,4 +162,18 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript" src="{{ asset('https://code.jquery.com/jquery-3.2.1.min.js') }}"></script>
+    <script>
+        // serial number
+        $('#ssn1').keyup(function() {
+            var val = this.value.replace(/\D/g, '');
+            var newVal = '';
+            while (val.length > 4) {
+                newVal += val.substr(0, 4) + '-';
+                val = val.substr(4);
+            }
+            newVal += val;
+            this.value = newVal;
+        });
+    </script>
 @endsection

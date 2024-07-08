@@ -208,6 +208,7 @@ Route::group(['prefix' => 'admin'], function(){
     Route::post('/create-voucher', 'Backend\AdminController@uploadVoucher');
     Route::get('/delete-voucher/{id}', 'Backend\AdminController@deleteVoucher');
     Route::post('/update-voucher', 'Backend\AdminController@updateVoucher');
+    Route::post('/search-voucher', 'Backend\AdminSearchController@searchVoucher');
 
     // ระบบสมัครงาน
     Route::get('/apply-work/{url_name}','Backend\AdminController@applyWork');
@@ -261,6 +262,8 @@ Route::group(['prefix' => 'seller'], function(){
     // คูปองเงินสด
     Route::get('/voucher', 'Backend\SellerController@voucher');
     Route::post('/update-voucher', 'Backend\SellerController@updateVoucher');
+    Route::post('/search-voucher', 'Backend\SellerSearchController@searchVoucher');
+
 
 });
 

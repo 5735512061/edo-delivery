@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Customer;
 use App\model\Order;
 use App\model\FoodMenu;
+use App\model\Voucher;
 
 class AdminSearchController extends Controller
 {
@@ -89,6 +90,19 @@ class AdminSearchController extends Controller
         return view('backend/admin/manageMenuPricePromotion/menu-price-promotion')->with('NUM_PAGE',$NUM_PAGE)
                                                                                   ->with('page',$page)
                                                                                   ->with('food_menus',$food_menus);
+    }
+
+    public function searchVoucher(Request $request){
+        $NUM_PAGE = 20;
+        $serialnumber = $request->get('serialnumber');
+        $vouchers = Voucher::where([
+            ['serialnumber','LIKE', $serialnumber],
+        ])->paginate($NUM_PAGE);
+        $page = $request->input('page');
+        $page = ($page != null)?$page:1;
+        return view('backend/admin/voucher/create-voucher')->with('NUM_PAGE',$NUM_PAGE)
+                                                           ->with('page',$page)
+                                                           ->with('vouchers',$vouchers);
     }
     
 }

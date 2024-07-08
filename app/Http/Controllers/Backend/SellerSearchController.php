@@ -9,6 +9,7 @@ use App\Customer;
 use App\Seller;
 use App\model\Order;
 use App\model\FoodMenu;
+use App\model\Voucher;
 
 use Auth;
 
@@ -78,5 +79,18 @@ class SellerSearchController extends Controller
         return view('backend/seller/manageMenuPricePromotion/menu-price-promotion')->with('NUM_PAGE',$NUM_PAGE)
                                                                                    ->with('page',$page)
                                                                                    ->with('food_menus',$food_menus);
+    }
+
+    public function searchVoucher(Request $request){
+        $NUM_PAGE = 20;
+        $serialnumber = $request->get('serialnumber');
+        $vouchers = Voucher::where([
+            ['serialnumber','LIKE', $serialnumber],
+        ])->paginate($NUM_PAGE);
+        $page = $request->input('page');
+        $page = ($page != null)?$page:1;
+        return view('backend/seller/voucher/voucher')->with('NUM_PAGE',$NUM_PAGE)
+                                                    ->with('page',$page)
+                                                    ->with('vouchers',$vouchers);
     }
 }

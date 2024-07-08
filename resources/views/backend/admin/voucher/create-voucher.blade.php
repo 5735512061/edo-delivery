@@ -42,7 +42,8 @@
                                     <span class="text-danger"
                                         style="font-size: 16px;">({{ $errors->first('serialnumber') }})</span>
                                 @endif
-                                <input type="text" class="form-control" name="serialnumber">
+                                <input id="ssn" maxlength="19" minlength="19" type="text" class="form-control"
+                                    name="serialnumber">
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -89,8 +90,31 @@
                 </form>
             </div>
         </div>
-    </div>
-    <div class="page-inner">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <form action="{{ url('/admin/search-voucher') }}" enctype="multipart/form-data" method="post">@csrf
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="navbar-left navbar-form nav-search mr-md-3">
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <button type="submit" class="btn btn-search pr-1">
+                                                    <i class="fa fa-search search-icon"></i>
+                                                </button>
+                                            </div>
+                                            <input id="ssn1" maxlength="19" minlength="19" type="text"
+                                                placeholder="ค้นหาหมายเลขคูปอง" class="form-control" name="serialnumber">
+                                        </div>
+                                    </div><br>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
@@ -244,4 +268,30 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript" src="{{ asset('https://code.jquery.com/jquery-3.2.1.min.js') }}"></script>
+    <script>
+        // serial number
+        $('#ssn').keyup(function() {
+            var val = this.value.replace(/\D/g, '');
+            var newVal = '';
+            while (val.length > 4) {
+                newVal += val.substr(0, 4) + '-';
+                val = val.substr(4);
+            }
+            newVal += val;
+            this.value = newVal;
+        });
+
+        // serial number
+        $('#ssn1').keyup(function() {
+            var val = this.value.replace(/\D/g, '');
+            var newVal = '';
+            while (val.length > 4) {
+                newVal += val.substr(0, 4) + '-';
+                val = val.substr(4);
+            }
+            newVal += val;
+            this.value = newVal;
+        });
+    </script>
 @endsection

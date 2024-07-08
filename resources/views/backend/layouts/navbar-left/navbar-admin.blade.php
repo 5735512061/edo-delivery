@@ -172,12 +172,12 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a data-toggle="collapse" href="#applywork">
+                    <a data-toggle="collapse" href="#voucher">
                         <i class="fas fa-credit-card"></i>
                         <p>คูปองเงินสด</p>
                         <span class="caret"></span>
                     </a>
-                    <div class="collapse" id="applywork">
+                    <div class="collapse" id="voucher">
                         <ul class="nav nav-collapse">
                             <li>    
                                 <a href="{{ url('/admin/create-voucher') }}">
