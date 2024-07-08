@@ -43,7 +43,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <p>* กรณีที่ยังไม่ลงทะเบียน ให้ลงทะเบียนก่อน</p>
-                                <p><button style="font-family: 'Mitr'" type="submit" class="btn btn-primary">เข้าสู่ระบบสมาชิก</button>
+                                <p><button style="font-family: 'Noto Sans Thai'" type="submit" class="btn btn-primary">เข้าสู่ระบบสมาชิก</button>
                                 <a href="{{url('/register-customer')}}/{{$store_id}}" class="btn btn-primary">สมัครสมาชิก</a></p>
                                 <a href="{{url('/customer/ForgetPassword')}}/{{$store_id}}">ลืมรหัสผ่าน ?</a>
                             </div>

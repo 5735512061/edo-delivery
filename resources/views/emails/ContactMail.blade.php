@@ -7,10 +7,10 @@
     <title>Edo Delivery</title>
 </head>
 <body>
-    <h1 style="font-family: Mitr !important;">ข้อความติดต่อ</h1>
-    <h2 style="font-family: Mitr !important;">{{$details['subject']}}</h2>
-    <p style="font-family: Mitr !important;">เบอร์โทรศัพท์ : {{$details['phone']}}</p>
-    <p style="font-family: Mitr !important;">ข้อความติดต่อ : {{$details['message_contact']}}</p>
-    <a href="{{url('/admin/message')}}/{{$details['store_name']}}" style="font-family: Mitr !important;">ตอบกลับข้อความ</a>
+    <h1 style="font-family: Noto Sans Thai !important;">ข้อความติดต่อ</h1>
+    <h2 style="font-family: Noto Sans Thai !important;">{{$details['subject']}}</h2>
+    <p style="font-family: Noto Sans Thai !important;">เบอร์โทรศัพท์ : {{$details['phone']}}</p>
+    <p style="font-family: Noto Sans Thai !important;">ข้อความติดต่อ : {{$details['message_contact']}}</p>
+    <a href="{{url('/admin/message')}}/{{$details['store_name']}}" style="font-family: Noto Sans Thai !important;">ตอบกลับข้อความ</a>
 </body>
 </html>

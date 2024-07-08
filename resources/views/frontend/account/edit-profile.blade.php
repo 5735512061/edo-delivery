@@ -29,7 +29,7 @@
                                 @if ($errors->has('name'))
                                     <span class="text-danger" style="font-size: 17px;">({{ $errors->first('name') }})</span>
                                 @endif
-                                <input type="text" class="form-control" name="name" value="{{$customer->name}}" style="font-family: 'Mitr'">
+                                <input type="text" class="form-control" name="name" value="{{$customer->name}}" style="font-family: 'Noto Sans Thai'">
                             </div>
                         </div>
 
@@ -40,7 +40,7 @@
                                 @if ($errors->has('surname'))
                                     <span class="text-danger" style="font-size: 17px;">({{ $errors->first('surname') }})</span>
                                 @endif
-                                <input type="text" class="form-control" name="surname" value="{{$customer->surname}}" style="font-family: 'Mitr'">
+                                <input type="text" class="form-control" name="surname" value="{{$customer->surname}}" style="font-family: 'Noto Sans Thai'">
                             </div>
                         </div>
 
@@ -51,7 +51,7 @@
                                 @if ($errors->has('phone'))
                                     <span class="text-danger" style="font-size: 17px;">({{ $errors->first('phone') }})</span>
                                 @endif
-                                <input type="text" class="phone_format form-control" name="phone" value="{{$customer->phone}}" style="font-family: 'Mitr'"> 
+                                <input type="text" class="phone_format form-control" name="phone" value="{{$customer->phone}}" style="font-family: 'Noto Sans Thai'"> 
                             </div>
                         </div>
                         
@@ -62,7 +62,7 @@
                                 @if ($errors->has('username'))
                                     <span class="text-danger" style="font-size: 17px;">({{ $errors->first('username') }})</span>
                                 @endif
-                                <input type="text" class="form-control" name="username" value="{{$customer->username}}" style="font-family: 'Mitr'">
+                                <input type="text" class="form-control" name="username" value="{{$customer->username}}" style="font-family: 'Noto Sans Thai'">
                             </div>
                         </div>
 
@@ -70,7 +70,7 @@
                         <input type="hidden" name="store_id" value="{{$store_id}}">
                         <div class="form-group row mb-5">
                             <div class="col-md-6 offset-md-4">
-                                <p><button style="font-family: 'Mitr'" type="submit" class="btn btn-primary">อัพเดตข้อมูลส่วนตัว</button></p>
+                                <p><button style="font-family: 'Noto Sans Thai'" type="submit" class="btn btn-primary">อัพเดตข้อมูลส่วนตัว</button></p>
                             </div>
                         </div>
                     </form>

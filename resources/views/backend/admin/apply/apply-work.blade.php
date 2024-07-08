@@ -47,7 +47,7 @@
                                             $count_unique = DB::table('apply_works')->where('card_id',$value->card_id)->groupBy('card_id')->count('card_id');
                                         @endphp
                                         <tr>
-                                            @if($count_unique > 1)
+                                            @if($count_unique > 1 && $value->card_id != NULL)
                                                 <td style="color: red;">{{ $NUM_PAGE * ($page - 1) + $apply_work + 1 }}</td>
                                                 <td style="color: red;">{{ $branch_name }}</td>
                                                 <td style="color: red;">{{ $value->card_id }}</td>

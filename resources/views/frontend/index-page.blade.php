@@ -55,7 +55,7 @@
 									<h2 style="text-align: center;">-- ยังไม่เปิดให้บริการ --</h2>
 								</div>
 								<div class="modal-footer">
-									<button type="button" class="btn btn-secondary" data-dismiss="modal" style="font-family: 'Mitr';">ปิด</button>
+									<button type="button" class="btn btn-secondary" data-dismiss="modal" style="font-family: 'Noto Sans Thai';">ปิด</button>
 								</div>
 							</div>
 						</div>

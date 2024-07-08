@@ -172,12 +172,26 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a data-toggle="collapse" href="#applywork">
+                        <i class="fas fa-credit-card"></i>
+                        <p>คูปองเงินสด</p>
+                        <span class="caret"></span>
+                    </a>
+                    <div class="collapse" id="applywork">
+                        <ul class="nav nav-collapse">
+                            <li>    
+                                <a href="{{ url('/admin/create-voucher') }}">
+                                    <span class="sub-item">สร้างคูปองเงินสด</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
                     <a href="{{ url('/admin/message/Little Edo 少し江戸-สาขาภูเก็ต') }}">
                         <i class="fas fa-bullhorn"></i>
                         @php
-                            $message = DB::table('contacts')
-                                ->where('answer_message', null)
-                                ->count();
+                            $message = DB::table('contacts')->where('answer_message', null)->count();
                         @endphp
                         <p>การติดต่อสอบถาม</p>
                         <p class="badge badge-success" style="color:#fff;">{{ $message }}</p>
@@ -194,9 +208,9 @@
                         <ul class="nav nav-collapse">
                             <li>
                                 @php
-                                    $branch = DB::table('url_apply_works')->orderBy('id','asc')->value('url_name');
+                                    $branch = DB::table('url_apply_works')->orderBy('id', 'asc')->value('url_name');
                                 @endphp
-                                <a href="{{ url('/admin/apply-work') }}/{{$branch}}">
+                                <a href="{{ url('/admin/apply-work') }}/{{ $branch }}">
                                     <span class="sub-item">ข้อมูลผู้สมัคร</span>
                                 </a>
                             </li>

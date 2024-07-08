@@ -9,7 +9,7 @@
 		<meta name="description" content="">
 		<meta name="keywords" content="">
 		<style>
-			@import url('https://fonts.googleapis.com/css2?family=Mitr:wght@200&display=swap');
+			@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@100..900&display=swap');
 		</style>
 		<script src="{{asset('backend/js/plugin/webfont/webfont.min.js')}}"></script>
 		<script>

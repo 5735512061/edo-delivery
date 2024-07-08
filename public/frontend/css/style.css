@@ -31,8 +31,8 @@
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --font-family-sans-serif: "Mitr",-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-family-monospace: "Mitr",SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+  --font-family-sans-serif: "Noto Sans Thai",-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-family-monospace: "Noto Sans Thai",SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
 
 *,
 *::before,
@@ -42,7 +42,7 @@
 }
 
 html {
-  font-family: "Mitr",sans-serif;
+  font-family: "Noto Sans Thai",sans-serif;
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
@@ -52,7 +52,7 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 
 body {
   margin: 0;
-  font-family: "Mitr",-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: "Noto Sans Thai",-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
@@ -154,7 +154,7 @@ pre,
 code,
 kbd,
 samp {
-  font-family: "Mitr",SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-family: "Noto Sans Thai",SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   font-size: 1em; }
 
 pre {
@@ -203,7 +203,7 @@ select,
 optgroup,
 textarea {
   margin: 0;
-  font-family: "Mitr",inherit;
+  font-family: "Noto Sans Thai",inherit;
   font-size: inherit;
   line-height: inherit; }
 
@@ -295,7 +295,7 @@ template {
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
   margin-bottom: 0.5rem;
-  font-family: "Mitr",inherit;
+  font-family: "Noto Sans Thai",inherit;
   font-weight: 500;
   line-height: 1.2;
   color: inherit; }
@@ -4750,7 +4750,7 @@ a.close.disabled {
   z-index: 1070;
   display: block;
   margin: 0;
-  font-family: "Mitr",-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: "Noto Sans Thai",-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -4835,7 +4835,7 @@ a.close.disabled {
   z-index: 1060;
   display: block;
   max-width: 276px;
-  font-family: "Mitr",-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: "Noto Sans Thai",-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -7769,7 +7769,7 @@ button.bg-dark:focus {
     margin-left: auto !important; } }
 
 .text-monospace {
-  font-family: "Mitr",SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+  font-family: "Noto Sans Thai",SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
 
 .text-justify {
   text-align: justify !important; }
@@ -7996,7 +7996,7 @@ a.text-dark:hover, a.text-dark:focus {
     border-color: #dee2e6; } }
 
 body {
-  font-family: "Mitr","Poppins", Arial, sans-serif;
+  font-family: "Noto Sans Thai","Poppins", Arial, sans-serif;
   background: #fff;
   font-size: 15px;
   line-height: 1.8;
@@ -8022,7 +8022,7 @@ h1, h2, h3, h4, h5,
   line-height: 1.5;
   font-weight: 400;
   color: #000000;
-  font-family: "Mitr","Poppins", Arial, sans-serif; }
+  font-family: "Noto Sans Thai","Poppins", Arial, sans-serif; }
 
 .text-primary {
   color: #82ae46 !important; }
@@ -8240,7 +8240,7 @@ h1, h2, h3, h4, h5,
       font-weight: 800;
       color: #fff;
       font-size: 30px;
-      font-family: "Mitr","Poppins", Arial, sans-serif;
+      font-family: "Noto Sans Thai","Poppins", Arial, sans-serif;
       letter-spacing: 3px;
       text-transform: uppercase; }
     .hero-wrap .slider-text .btn-primary {
@@ -8405,7 +8405,7 @@ h1, h2, h3, h4, h5,
           color: #fff;
           line-height: 1.3;
           font-weight: 400;
-          font-family: "Mitr","Amatic SC", cursive; }
+          font-family: "Noto Sans Thai","Amatic SC", cursive; }
           @media (max-width: 767.98px) {
             .owl-carousel.home-slider .slider-item .slider-text h1 {
               font-size: 40px; } }
@@ -8527,7 +8527,7 @@ h1, h2, h3, h4, h5,
     background: #000;
     border: 1px solid #000;
     color: #fff; 
-    font-family: 'Mitr' !important;
+    font-family: 'Noto Sans Thai' !important;
   }
     .btn.btn-primary:hover {
       border: 1px solid #000;
@@ -8546,12 +8546,12 @@ h1, h2, h3, h4, h5,
     background: rgb(255, 255, 255);
     border: 1px solid rgb(0, 0, 0);
     color: rgb(0, 0, 0); 
-    font-family: 'Mitr' !important; }
+    font-family: 'Noto Sans Thai' !important; }
     .btn.btn-white:hover {
       background: rgb(0, 0, 0);
       border: 1px solid rgb(255, 255, 255);
       color: rgb(255, 255, 255); 
-      font-family: 'Mitr' !important; }
+      font-family: 'Noto Sans Thai' !important; }
     .btn.btn-white.btn-outline-white {
       border: 1px solid #fff;
       background: transparent;
@@ -8612,7 +8612,7 @@ h1, h2, h3, h4, h5,
 
 .deal-of-the-day h3 {
   font-size: 30px;
-  font-family: "Mitr","Lora", Georgia, serif;
+  font-family: "Noto Sans Thai","Lora", Georgia, serif;
   font-style: italic; }
   .deal-of-the-day h3 a {
     color: #82ae46; }
@@ -8756,7 +8756,7 @@ h1, h2, h3, h4, h5,
       font-weight: 300;
       /* text-transform: uppercase; */
       letter-spacing: 1px;
-      font-family: "Mitr","Poppins", Arial, sans-serif; }
+      font-family: "Noto Sans Thai","Poppins", Arial, sans-serif; }
       .product .text h3 a {
         color: #000000;
         font-weight: bold; 
@@ -9296,7 +9296,7 @@ textarea.form-control {
     font-size: 18px;
     display: block;
     margin-bottom: 10px;
-    font-family: "Mitr","Lora", Georgia, serif;
+    font-family: "Noto Sans Thai","Lora", Georgia, serif;
     font-style: italic;
     color: #82ae46; }
   .heading-section h2 {
@@ -9304,7 +9304,7 @@ textarea.form-control {
     font-size: 40px;
     font-weight: 600;
     color: #000000;
-    font-family: "Mitr","Poppins", Arial, sans-serif; }
+    font-family: "Noto Sans Thai","Poppins", Arial, sans-serif; }
     @media (max-width: 767.98px) {
       .heading-section h2 {
         font-size: 28px; } }
@@ -9375,7 +9375,7 @@ textarea.form-control {
       font-size: 15px;
       text-transform: uppercase;
       font-weight: 500;
-      font-family: "Mitr","Poppins", Arial, sans-serif;
+      font-family: "Noto Sans Thai","Poppins", Arial, sans-serif;
       color: #000000; }
     .ftco-services .services .media-body span {
       text-transform: uppercase;
@@ -9395,7 +9395,7 @@ textarea.form-control {
     background: #82ae46; }
     .ftco-category .category-wrap .text h2 {
       font-size: 18px;
-      font-family: "Mitr","Poppins", Arial, sans-serif; }
+      font-family: "Noto Sans Thai","Poppins", Arial, sans-serif; }
       .ftco-category .category-wrap .text h2 a {
         color: #fff; }
 
@@ -9405,7 +9405,7 @@ textarea.form-control {
     width: 100%; }
     .ftco-category .category-wrap-2 .text h2 {
       color: #82ae46;
-      font-family: "Mitr","Lora", Georgia, serif;
+      font-family: "Noto Sans Thai","Lora", Georgia, serif;
       font-style: italic;
       font-size: 24px; }
 
@@ -9773,7 +9773,7 @@ textarea.form-control {
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
   font-size: 15px; 
-  font-family: "Mitr";
+  font-family: "Noto Sans Thai";
 }
 
 .block-21 .blog-img {

@@ -50,7 +50,7 @@ p {
                     <div class="item">
                         <label for="1">
                             <input class="radio" type="radio" name="feedback" id="1" value="1">
-                            <center><p style="font-family: 'Mitr'; margin-bottom: 0rem;">1</p></center>
+                            <center><p style="font-family: 'Noto Sans Thai'; margin-bottom: 0rem;">1</p></center>
                             <span><center>😡</center></span>
                             <center><p>แย่</p></center>
                         </label>
@@ -61,7 +61,7 @@ p {
                     <div class="item">
                         <label for="2">
                             <input class="radio" type="radio" name="feedback" id="2" value="2">
-                            <center><p style="font-family: 'Mitr'; margin-bottom: 0rem;">2</p></center>
+                            <center><p style="font-family: 'Noto Sans Thai'; margin-bottom: 0rem;">2</p></center>
                             <span><center>🙁</center></span>
                             <center><p>ปรับปรุง</p></center>
                         </label>
@@ -72,7 +72,7 @@ p {
                     <div class="item">
                         <label for="3">
                             <input class="radio" type="radio" name="feedback" id="3" value="3">
-                            <center><p style="font-family: 'Mitr'; margin-bottom: 0rem;">3</p></center>
+                            <center><p style="font-family: 'Noto Sans Thai'; margin-bottom: 0rem;">3</p></center>
                             <span><center>😐</center></span>
                             <center><p>พอใช้</p></center>
                         </label>
@@ -103,10 +103,10 @@ p {
                 
             </div>
             <div class="row mt-5">
-                <textarea name="comment" cols="30" rows="5" class="form-control" placeholder="ข้อเสนอแนะ / คำติชม" style="font-family: 'Mitr';"></textarea>
+                <textarea name="comment" cols="30" rows="5" class="form-control" placeholder="ข้อเสนอแนะ / คำติชม" style="font-family: 'Noto Sans Thai';"></textarea>
             </div>
             <input type="hidden" name="branch_name" value="{{$branch_name}}">
-            <center><button type="submit" class="btn btn-success my-4" style="font-size: 1.5rem; font-family: 'Mitr';">แสดงความคิดเห็น</button></center>
+            <center><button type="submit" class="btn btn-success my-4" style="font-size: 1.5rem; font-family: 'Noto Sans Thai';">แสดงความคิดเห็น</button></center>
         </form>
     </div>
 </div>

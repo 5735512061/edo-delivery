@@ -24,12 +24,15 @@ use App\model\Contact;
 use App\model\Blog;
 use App\model\ImageGallery;
 use App\model\Coupon;
+use App\model\Voucher;
 use App\model\SpecialMenu;
 use App\model\ApplyWork;
 use App\model\UrlApplyWork;
 
 use App\Customer;
 use App\Seller;
+
+use Carbon\Carbon;
 
 use Response;
 use Validator;
@@ -814,6 +817,53 @@ class AdminController extends Controller
         ]);
     }
 
+    // คูปองเงินสด
+    public function createVoucher(Request $request){
+        $NUM_PAGE = 50;
+        $vouchers = Voucher::paginate($NUM_PAGE);
+        $page = $request->input('page');
+        $page = ($page != null)?$page:1;
+        return view('backend/admin/voucher/create-voucher')->with('vouchers',$vouchers)
+                                                           ->with('page',$page)
+                                                           ->with('NUM_PAGE',$NUM_PAGE);
+    }
+
+    public function uploadVoucher(Request $request){
+        $validator = Validator::make($request->all(), $this->rules_createVoucher(), $this->messages_createVoucher());
+        if($validator->passes()) {
+            $voucher = $request->all();
+            $voucher = Voucher::create($voucher);
+            $request->session()->flash('alert-success', 'สร้างคูปองเงินสดสำเร็จ');
+            return back();
+        }
+        else {
+            $request->session()->flash('alert-danger', 'สร้างคูปองเงินสดไม่สำเร็จ');
+            return back()->withErrors($validator)->withInput();
+        }
+    }
+
+    public function deleteVoucher($id){
+        $voucher = Voucher::findOrFail($id);
+        $voucher->delete();
+        return back();
+    }
+
+    public function updateVoucher(Request $request){
+        $validator = Validator::make($request->all(), $this->rules_createVoucher(), $this->messages_createVoucher());
+        if($validator->passes()) {
+            $id = $request->get('id');
+            $voucher = Voucher::findOrFail($id);
+            $voucher->date = Carbon::now();
+            $voucher->update($request->all());
+            $request->session()->flash('alert-success', 'อัพเดตข้อมูลสำเร็จ');
+            return redirect()->action('Backend\AdminController@createVoucher');
+        }
+        else {
+            $request->session()->flash('alert-danger', 'อัพเดตข้อมูลไม่สำเร็จ');
+            return back()->withErrors($validator)->withInput();
+        }
+    }
+
     /////////////////////////////// validate ///////////////////////////////
     public function rules_createSeller() {
         return [
@@ -1021,11 +1071,25 @@ class AdminController extends Controller
         ];
     }
 
-    public function messages_createBlog() {
+    public function messages_createBlog() {          
         return [
             'thai_name.required' => 'กรุณากรอกเมนู (ภาษาไทย)',
             'eng_name.required' => 'กรุณากรอกเมนู (ภาษาอังกฤษ)',
             'image.required' => 'กรุณาแนบไฟล์รูปภาพ',
+        ];
+    }
+
+    public function rules_createVoucher() {
+        return [
+            'serialnumber' => 'required',
+            'creator' => 'required',
+        ];
+    }
+
+    public function messages_createVoucher() {          
+        return [
+            'serialnumber.required' => 'กรุณากรอกหมายเลขหน้าบัตร',
+            'creator.required' => 'กรุณากรอกชื่อผู้ขายคูปอง',
         ];
     }
 }

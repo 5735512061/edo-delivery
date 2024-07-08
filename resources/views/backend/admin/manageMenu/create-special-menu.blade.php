@@ -33,11 +33,11 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>หัวข้อเมนู (ถ้ามี)</label>
+                            <label>เมนู</label>
                             <input type="text" class="form-control form-control-sm" name="heading">
                         </div>
                         <div class="form-group">
-                            <label>รายละเอียดเพิ่มเติม (ถ้ามี)</label>
+                            <label>ราคา</label>
                             <input type="text" class="form-control form-control-sm" name="detail">
                         </div>
                         <div class="form-group">

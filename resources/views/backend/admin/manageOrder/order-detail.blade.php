@@ -104,7 +104,7 @@
                                 <p style="font-size: 16px;">{{$name}} {{$phone}}</p>
                                 <p style="font-size: 16px;">ที่อยู่ {{$address}} ตำบล {{$district}} อำเภอ {{$amphoe}} จังหวัด {{$province}} {{$zipcode}}</p>
                                 <p style="font-size: 16px;">
-                                    <a type="button" data-toggle="modal" data-target="#ModalShipment"><i class="fa fa-pencil-square-o" style="color:blue; font-family: 'Mitr','FontAwesome';"> แก้ไขข้อมูลการจัดส่ง</i></a>
+                                    <a type="button" data-toggle="modal" data-target="#ModalShipment"><i class="fa fa-pencil-square-o" style="color:blue; font-family: 'Noto Sans Thai','FontAwesome';"> แก้ไขข้อมูลการจัดส่ง</i></a>
                                 </p>
                             </div>
                         </div>
@@ -115,7 +115,7 @@
                             <div class="col-md-4">
                                 <h4>อัพเดตสถานะการจัดส่ง</h4><hr style="border-top:3px solid rgb(214 214 214)">
                                 <a type="button" data-toggle="modal" data-target="#ModalStatus">
-                                    <i class="fa fa-pencil-square-o" style="color:blue; font-family: 'Mitr','FontAwesome';"> กดเพื่ออัพเดตสถานะการจัดส่ง</i>
+                                    <i class="fa fa-pencil-square-o" style="color:blue; font-family: 'Noto Sans Thai','FontAwesome';"> กดเพื่ออัพเดตสถานะการจัดส่ง</i>
                                 </a>
                             </div>
                             <div class="col-md-4">

@@ -1,7 +1,7 @@
 @extends("/backend/layouts/template/template-admin-login")
 
 @section("content")
-<h1 style="font-family: Mitr !important;">รายละเอียดคำสั่งซื้อ</h1>
+<h1 style="font-family: Noto Sans Thai !important;">รายละเอียดคำสั่งซื้อ</h1>
 <div class="page-inner">
     <div class="row">
         <div class="col-md-12">
@@ -16,11 +16,11 @@
                                     $surname = DB::table('customers')->where('id',$details['order']->customer_id)->value('surname');
                                     $phone = DB::table('customers')->where('id',$details['order']->customer_id)->value('phone');
                                 @endphp
-                                <p style="font-size: 18px; font-family: Mitr !important;">หมายเลขสมาชิก : {{$customer_code}}</p>
-                                <p style="font-size: 18px; font-family: Mitr !important;">ชื่อลูกค้า : {{$name}} {{$surname}} เบอร์โทรศัพท์ : {{$phone}}</p>
+                                <p style="font-size: 18px; font-family: Noto Sans Thai !important;">หมายเลขสมาชิก : {{$customer_code}}</p>
+                                <p style="font-size: 18px; font-family: Noto Sans Thai !important;">ชื่อลูกค้า : {{$name}} {{$surname}} เบอร์โทรศัพท์ : {{$phone}}</p>
                             </div>
                             <div class="col-md-4">
-                                <h2 style="font-family: Mitr !important;">ที่อยู่สำหรับจัดส่ง</h2>
+                                <h2 style="font-family: Noto Sans Thai !important;">ที่อยู่สำหรับจัดส่ง</h2>
                                 @php
                                     $name = DB::table('shipments')->where('customer_id',$details['order']->customer_id)->where('bill_number',$details['order']->bill_number)->value('name');
                                     $phone = DB::table('shipments')->where('customer_id',$details['order']->customer_id)->where('bill_number',$details['order']->bill_number)->value('phone');
@@ -30,8 +30,8 @@
                                     $province = DB::table('shipments')->where('customer_id',$details['order']->customer_id)->where('bill_number',$details['order']->bill_number)->value('province');
                                     $zipcode = DB::table('shipments')->where('customer_id',$details['order']->customer_id)->where('bill_number',$details['order']->bill_number)->value('zipcode');
                                 @endphp
-                                <p style="font-size: 16px; font-family: Mitr !important;">{{$name}} {{$phone}}</p>
-                                <p style="font-size: 16px; font-family: Mitr !important;">ที่อยู่ {{$address}} ตำบล{{$district}} อำเภอ{{$amphoe}} จังหวัด{{$province}} {{$zipcode}}</p>
+                                <p style="font-size: 16px; font-family: Noto Sans Thai !important;">{{$name}} {{$phone}}</p>
+                                <p style="font-size: 16px; font-family: Noto Sans Thai !important;">ที่อยู่ {{$address}} ตำบล{{$district}} อำเภอ{{$amphoe}} จังหวัด{{$province}} {{$zipcode}}</p>
                             </div>
                         </div>
                     </p>
@@ -40,7 +40,7 @@
         </div>
     </div>
 </div><hr>
-<h1 style="font-family: Mitr !important;">รายการอาหาร</h1>
+<h1 style="font-family: Noto Sans Thai !important;">รายการอาหาร</h1>
 <div class="page-inner">
     <div class="row">
         <div class="col-md-12">
@@ -81,10 +81,10 @@
                                             $district = DB::table('shipments')->where('id',$shipment_id)->value('district');
                                         @endphp
 
-                                        <td style="font-family: Mitr !important;">{{$product_name}}</td>
-                                        <td style="font-family: Mitr !important;">{{$qty}} รายการ</td>
-                                        <td style="font-family: Mitr !important;">ราคารวม {{$totalPriceFormat}} บาท</td>
-                                        <td style="font-family: Mitr !important;">{{$comment}}</td>
+                                        <td style="font-family: Noto Sans Thai !important;">{{$product_name}}</td>
+                                        <td style="font-family: Noto Sans Thai !important;">{{$qty}} รายการ</td>
+                                        <td style="font-family: Noto Sans Thai !important;">ราคารวม {{$totalPriceFormat}} บาท</td>
+                                        <td style="font-family: Noto Sans Thai !important;">{{$comment}}</td>
                                     </tr>
                                     @php
                                         if($amount_type == 'ค่าคงที่') {
@@ -128,11 +128,11 @@
         </div>
     </div>
 </div>
-<h3 style="font-family: Mitr !important;">ส่วนลดคูปอง {{$discount}} บาท</h3>
-<h3 style="font-family: Mitr !important;">ค่าจัดส่ง {{$price_delivery}} บาท</h3>
-<h2 style="font-family: Mitr !important;">ราคารวมทั้งหมด {{$total_delivery}} บาท</h2>
+<h3 style="font-family: Noto Sans Thai !important;">ส่วนลดคูปอง {{$discount}} บาท</h3>
+<h3 style="font-family: Noto Sans Thai !important;">ค่าจัดส่ง {{$price_delivery}} บาท</h3>
+<h2 style="font-family: Noto Sans Thai !important;">ราคารวมทั้งหมด {{$total_delivery}} บาท</h2>
 @php
     $id = DB::table('orders')->where('bill_number',$details['bill_number'])->value('id');
 @endphp
-<br><a href="{{url('/admin/order-detail/')}}/{{$id}}" style="font-family: Mitr !important;">ตรวจสอบคำสั่งหมายเลข {{$details['bill_number']}}</a>
+<br><a href="{{url('/admin/order-detail/')}}/{{$id}}" style="font-family: Noto Sans Thai !important;">ตรวจสอบคำสั่งหมายเลข {{$details['bill_number']}}</a>
 @endsection

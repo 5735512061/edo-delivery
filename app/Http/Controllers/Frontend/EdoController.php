@@ -174,7 +174,9 @@ class EdoController extends Controller
             }
     }
 
-
+    public function voucherCard(){
+        return view('frontend/voucher-card');
+    }
 
 
     // Validate

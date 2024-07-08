@@ -115,7 +115,7 @@
                                 @endif
                                 <label style="color: red;">*</label><label>สมัครงานในตำแหน่ง</label>
                                 <select class="form-control" name="position"
-                                    style="border-radius: 4px; margin:8px 0; font-family:'Mitr' !important;">
+                                    style="border-radius: 4px; margin:8px 0; font-family:'Noto Sans Thai' !important;">
                                     <option></option>
                                     <option>ผู้จัดการร้าน</option>
                                     <option>เชฟ</option>
@@ -144,7 +144,7 @@
                                         style="font-size: 15px;">({{ $errors->first('card_id') }})</span><br>
                                 @endif
                                 <label style="color: red;">*</label><label>หมายเลขบัตรประชาชน</label>
-                                <input type="text" class="form-control" name="card_id" value="{{ old('card_id') }}">
+                                <input onkeyup="autoTab(this)" id="txtID" type="text" class="form-control" name="card_id" value="{{ old('card_id') }}">
                             </div>
                         </div><br>
                         <div class="row">
@@ -193,7 +193,7 @@
                                         style="font-size: 15px;">({{ $errors->first('history_work') }})</span><br>
                                 @endif
                                 <textarea name="history_work" rows="4" class="form-control"
-                                    style="border-radius: 4px; margin:8px 0; font-family:'Mitr' !important;"
+                                    style="border-radius: 4px; margin:8px 0; font-family:'Noto Sans Thai' !important;"
                                     placeholder="ตัวอย่าง : 1. พนักงานเสิร์ฟ ร้านอาหาร ระยะเวลา 2 ปี" value="{{ old('history_work') }}"></textarea>
                             </div>
                         </div>
@@ -250,7 +250,7 @@
                             <input type="hidden" name="branch_id" value="{{ $branch_id }}">
                             <input type="checkbox" id="checkme" /> ยอมรับข้อตกลง<br><br>
                             <button type="submit" class="btn btn-warning" value="submit"
-                                style="font-family:'Mitr' !important; color:#fff; background-color:#CE7F5C; font-size:16px; border-color:#CE7F5C;"
+                                style="font-family:'Noto Sans Thai' !important; color:#fff; background-color:#CE7F5C; font-size:16px; border-color:#CE7F5C;"
                                 disabled="disabled" id="sendNewSms">ส่งแบบฟอร์มสมัครงาน</button>
                         </div>
                     </center>
@@ -290,4 +290,64 @@
         };
         $(phoneFormatter);
     </script>
+    <script language="javascript">
+        //เมื่อมีการคลิกฟังก์ชัน
+        $(function (){
+         $('.btn_sub').click(function (){
+           if($('#txtID').val().trim()==''){
+            $('#msg').text('กรุณากรอกเลขประจำตัว');
+            $('#txtID').focus();
+           }else{
+            //checkID($('#txtID').val() จะไปเรียกฟังก์ชัน  checkID(id)
+            if(!checkID($('#txtID').val().trim())){
+             alert('รหัสประชาชนไม่ถูกต้อง');
+             return false;
+            }
+           }
+         });
+        });
+        
+        //ตรวจสอบเลข ปปช ว่ามีจริงหรือไม่
+        function checkID(id)
+        {
+        
+        //ตัดข้อความ - ออก
+        var zid = id;
+        var zids = zid.split("-");
+        for(var i=0;i<zids.length;i++){
+         zids[i];
+        }
+        var id_val = zids[0]+zids[1]+zids[2]+zids[3]+zids[4];
+        
+        if(id_val.length != 13) return false;
+        for(i=0, sum=0; i < 12; i++)
+        sum += parseFloat(id_val.charAt(i))*(13-i); if((11-sum%11)%10!=parseFloat(id_val.charAt(12)))
+        return false; return true;
+        }
+        
+        //ฟังก์ชัน รูปแบบ
+        function autoTab(obj){
+         /* กำหนดรูปแบบข้อความโดยให้ _ แทนค่าอะไรก็ได้ แล้วตามด้วยเครื่องหมาย
+         หรือสัญลักษณ์ที่ใช้แบ่ง เช่นกำหนดเป็น  รูปแบบเลขที่บัตรประชาชน
+         4-2215-54125-6-12 ก็สามารถกำหนดเป็น  _-____-_____-_-__
+         รูปแบบเบอร์โทรศัพท์ 08-4521-6521 กำหนดเป็น __-____-____
+         หรือกำหนดเวลาเช่น 12:45:30 กำหนดเป็น __:__:__
+         ตัวอย่างข้างล่างเป็นการกำหนดรูปแบบเลขบัตรประชาชน
+         */
+          var pattern=new String("_-____-_____-_-__"); // กำหนดรูปแบบในนี้
+          var pattern_ex=new String("-"); // กำหนดสัญลักษณ์หรือเครื่องหมายที่ใช้แบ่งในนี้
+          var returnText=new String("");
+          var obj_l=obj.value.length;
+          var obj_l2=obj_l-1;
+          for(i=0;i<pattern.length;i++){   
+           if(obj_l2==i && pattern.charAt(i+1)==pattern_ex){
+            returnText+=obj.value+pattern_ex;
+            obj.value=returnText;
+           }
+          }
+          if(obj_l>=pattern.length){
+           obj.value=obj.value.substr(0,pattern.length);   
+          }
+        }  
+      </script>
 @endsection

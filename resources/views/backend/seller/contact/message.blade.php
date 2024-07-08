@@ -63,7 +63,7 @@
                                         @endif  
                                         <td>  
                                             <a type="button" data-toggle="modal" data-target="#ModalStatus{{$value->id}}">
-                                                <i class="fa fa-pencil-square-o" style="color:blue; font-family: 'Mitr','FontAwesome';"> ตอบกลับ</i>
+                                                <i class="fa fa-pencil-square-o" style="color:blue; font-family: 'Noto Sans Thai','FontAwesome';"> ตอบกลับ</i>
                                             </a>  
                                         </td>
                                     </tr>

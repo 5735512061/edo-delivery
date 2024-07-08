@@ -126,7 +126,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control mt-5" id="comment-{{$value->id}}" placeholder="คำขอเพิ่มเติม (ถ้ามี)" name="comment" style="font-family: 'Mitr'; width:80%; font-size:15px;">
+                                        <input type="text" class="form-control mt-5" id="comment-{{$value->id}}" placeholder="คำขอเพิ่มเติม (ถ้ามี)" name="comment" style="font-family: 'Noto Sans Thai'; width:80%; font-size:15px;">
                                     </div>
                                 </div>
                             </div>

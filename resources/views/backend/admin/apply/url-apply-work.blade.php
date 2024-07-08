@@ -64,7 +64,7 @@
                                             <td>{{ $value->url_name }}</td>
                                             {{-- <td>{{ url('/apply-work') }}/{{ $value->url_name }}</td> --}}
                                             <td>
-                                                <p id="{{ $value->id }}" style="display: none;">
+                                                <p id="{{ $value->id }}" style="display: none;">    
                                                     {{ url('/apply-work') }}/{{ $value->url_name }}</p>
                                                 <a href="" style="color: #1229f5;"
                                                     onclick="copyToClipboard({{ $value->id }})">COPY LINK</a>

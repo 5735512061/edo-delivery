@@ -37,7 +37,7 @@
               @endif
               <div class="form-group">
                 <label for="firstname">ชื่อ-นามสกุล</label>
-                <input type="text" class="form-control" placeholder="กรุณากรอกชื่อ-นามสกุล" style="font-family: 'Mitr'" name="name">
+                <input type="text" class="form-control" placeholder="กรุณากรอกชื่อ-นามสกุล" style="font-family: 'Noto Sans Thai'" name="name">
               </div>
             </div>
             <div class="col-md-6">
@@ -46,7 +46,7 @@
               @endif
               <div class="form-group">
                 <label for="lastname">เบอร์โทรศัพท์</label>
-                <input type="text" class="phone_format form-control" placeholder="กรุณากรอกเบอร์โทรศัพท์ติดต่อ" style="font-family: 'Mitr'" name="phone">
+                <input type="text" class="phone_format form-control" placeholder="กรุณากรอกเบอร์โทรศัพท์ติดต่อ" style="font-family: 'Noto Sans Thai'" name="phone">
               </div>
             </div>
             <div class="w-100"></div>
@@ -56,7 +56,7 @@
               @endif
               <div class="form-group">
                 <label for="streetaddress">ที่อยู่</label>
-                <input type="text" class="form-control" placeholder="กรุณากรอกที่อยู่ ชื่ออาคาร หมู่บ้าน" style="font-family: 'Mitr'" name="address">
+                <input type="text" class="form-control" placeholder="กรุณากรอกที่อยู่ ชื่ออาคาร หมู่บ้าน" style="font-family: 'Noto Sans Thai'" name="address">
               </div>
             </div>
             <div class="col-md-6">
@@ -65,7 +65,7 @@
               @endif
               <div class="form-group">
                 <label for="towncity">ตำบล</label>
-                <input type="text" class="form-control" placeholder="กรุณากรอกชื่อตำบล" style="font-family: 'Mitr'" name="district" id="district">
+                <input type="text" class="form-control" placeholder="กรุณากรอกชื่อตำบล" style="font-family: 'Noto Sans Thai'" name="district" id="district">
               </div>
             </div>
             <div class="col-md-6">
@@ -74,7 +74,7 @@
               @endif
               <div class="form-group">
                 <label for="postcodezip">อำเภอ</label>
-                <input type="text" class="form-control" placeholder="กรุณากรอกชื่ออำเภอ" style="font-family: 'Mitr'" name="amphoe" id="amphoe">
+                <input type="text" class="form-control" placeholder="กรุณากรอกชื่ออำเภอ" style="font-family: 'Noto Sans Thai'" name="amphoe" id="amphoe">
               </div>
             </div>
             <div class="col-md-6">
@@ -83,7 +83,7 @@
               @endif
               <div class="form-group">
                 <label for="postcodezip">จังหวัด</label>
-                <input type="text" class="form-control" placeholder="กรุณากรอกชื่อจังหวัด" style="font-family: 'Mitr'" name="province" id="province">
+                <input type="text" class="form-control" placeholder="กรุณากรอกชื่อจังหวัด" style="font-family: 'Noto Sans Thai'" name="province" id="province">
               </div>
             </div>
             <div class="col-md-6">
@@ -92,7 +92,7 @@
               @endif
               <div class="form-group">
                 <label for="postcodezip">รหัสไปรษณีย์</label>
-                <input type="text" class="form-control" placeholder="กรุณากรอกรหัสไปรษณีย์" style="font-family: 'Mitr'" name="zipcode" id="zipcode">
+                <input type="text" class="form-control" placeholder="กรุณากรอกรหัสไปรษณีย์" style="font-family: 'Noto Sans Thai'" name="zipcode" id="zipcode">
               </div>
             </div>
           </div>
@@ -171,32 +171,32 @@
                     <span class="text-danger" style="font-size: 17px;">({{ $errors->first('money') }})</span>
                 @endif
                 <div class="form-group">
-                  <input type="text" class="form-control" placeholder="* จำนวนเงิน ตัวอย่าง 790 บาท" style="font-family: 'Mitr'" name="money">
+                  <input type="text" class="form-control" placeholder="* จำนวนเงิน ตัวอย่าง 790 บาท" style="font-family: 'Noto Sans Thai'" name="money">
                 </div>
                 @if ($errors->has('payday'))
                     <span class="text-danger" style="font-size: 17px;">({{ $errors->first('payday') }})</span>
                 @endif
                 <div class="form-group">
-                  <input type="text" class="form-control" placeholder="* วันที่ชำระเงิน ตัวอย่าง 01/01/2564" style="font-family: 'Mitr'" name="payday">
+                  <input type="text" class="form-control" placeholder="* วันที่ชำระเงิน ตัวอย่าง 01/01/2564" style="font-family: 'Noto Sans Thai'" name="payday">
                 </div>
                 @if ($errors->has('time'))
                     <span class="text-danger" style="font-size: 17px;">({{ $errors->first('time') }})</span>
                 @endif
                 <div class="form-group">
-                  <input type="text" class="form-control" placeholder="* เวลาชำระเงิน ตัวอย่าง 14.30น." style="font-family: 'Mitr'" name="time">
+                  <input type="text" class="form-control" placeholder="* เวลาชำระเงิน ตัวอย่าง 14.30น." style="font-family: 'Noto Sans Thai'" name="time">
                 </div>
                 <label class="col-form-label">แนบหลักฐานการโอนเงิน</label>
                 @if ($errors->has('slip'))
-                    <span class="text-danger" style="font-size: 17px; font-family: 'Mitr'">({{ $errors->first('slip') }})</span>
+                    <span class="text-danger" style="font-size: 17px; font-family: 'Noto Sans Thai'">({{ $errors->first('slip') }})</span>
                 @endif
                 <div class="form-group">
-                  <input type="file" class="form-control" style="font-family: 'Mitr'; height:30px !important;" name="slip">
+                  <input type="file" class="form-control" style="font-family: 'Noto Sans Thai'; height:30px !important;" name="slip">
                 </div>
                 <input type="hidden" name="store_id" value="{{$store_id}}">
                 @if(session()->has('coupon'))
                   <input type="hidden" name="coupon_id" value="{{ session()->get('coupon')['coupon_id'] }}">
                 @endif
-                <p id="button"><button type="submit" style="font-family: 'Mitr'; color:#fff !important;" class="btn btn-primary py-3 px-4">แจ้งชำระเงิน</button></p>
+                <p id="button"><button type="submit" style="font-family: 'Noto Sans Thai'; color:#fff !important;" class="btn btn-primary py-3 px-4">แจ้งชำระเงิน</button></p>
               </div>
             </div>
           </div>
@@ -218,7 +218,7 @@
                 </div>
                 <div class="modal-body">
                   <div class="col-md-12">
-                    <input type="text" name="code" class="form-control" placeholder="กรอกโค้ดส่วนลด (ถ้ามี)" style="font-family: 'Mitr';">
+                    <input type="text" name="code" class="form-control" placeholder="กรอกโค้ดส่วนลด (ถ้ามี)" style="font-family: 'Noto Sans Thai';">
                     <input type="hidden" name="store_id" value="{{$store_id}}">
                     <input type="hidden" name="totalPrice" value="{{$totalPrice}}">
                   </div>
@@ -279,12 +279,12 @@
           if(total-coupon < $min_cost) {
             document.getElementById("price").innerHTML = $price + ".00 บาท";
             document.getElementById("not_delivery").innerHTML = "";
-            document.getElementById("button").innerHTML = '<button type="submit" style="font-family: Mitr; color:#fff !important;" class="btn btn-primary py-3 px-4">แจ้งชำระเงิน</button>';
+            document.getElementById("button").innerHTML = '<button type="submit" style="font-family: Noto Sans Thai; color:#fff !important;" class="btn btn-primary py-3 px-4">แจ้งชำระเงิน</button>';
             price_delivery = $price; 
           } else {
             document.getElementById("price").innerHTML = 0 + ".00 บาท";
             document.getElementById("not_delivery").innerHTML = "";
-            document.getElementById("button").innerHTML = '<button type="submit" style="font-family: Mitr; color:#fff !important;" class="btn btn-primary py-3 px-4">แจ้งชำระเงิน</button>';
+            document.getElementById("button").innerHTML = '<button type="submit" style="font-family: Noto Sans Thai; color:#fff !important;" class="btn btn-primary py-3 px-4">แจ้งชำระเงิน</button>';
             price_delivery = 0;
           }
         } 

@@ -45,6 +45,9 @@ Route::group(['prefix' => '/'], function(){
     // รับสมัครงาน
     Route::get('/apply-work/{branch_name}','Frontend\EdoController@applyWork');
     Route::post('/apply-work','Frontend\EdoController@applyWorkPost');
+
+    // voucher-card
+    Route::get('/voucher-card', 'Frontend\EdoController@voucherCard');
 });
 
 // ลูกค้า
@@ -200,6 +203,12 @@ Route::group(['prefix' => 'admin'], function(){
     Route::get('/create-coupon', 'Backend\AdminController@createCoupon');
     Route::post('/create-coupon', 'Backend\AdminController@uploadCoupon');
 
+    // คูปองเงินสด
+    Route::get('/create-voucher', 'Backend\AdminController@createVoucher');
+    Route::post('/create-voucher', 'Backend\AdminController@uploadVoucher');
+    Route::get('/delete-voucher/{id}', 'Backend\AdminController@deleteVoucher');
+    Route::post('/update-voucher', 'Backend\AdminController@updateVoucher');
+
     // ระบบสมัครงาน
     Route::get('/apply-work/{url_name}','Backend\AdminController@applyWork');
     Route::get('/open-pdfResume/{id}','Backend\AdminController@openPdfResume');
@@ -248,6 +257,10 @@ Route::group(['prefix' => 'seller'], function(){
     Route::post('/search-menu', 'Backend\SellerSearchController@searchMenu');
     Route::post('/search-menu-price', 'Backend\SellerSearchController@searchMenuPrice');
     Route::post('/search-menu-price-promotion', 'Backend\SellerSearchController@searchMenuPricePromotion');
+
+    // คูปองเงินสด
+    Route::get('/voucher', 'Backend\SellerController@voucher');
+    Route::post('/update-voucher', 'Backend\SellerController@updateVoucher');
 
 });
 

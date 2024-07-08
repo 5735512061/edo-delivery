@@ -15,10 +15,13 @@ use App\model\OrderConfirm;
 use App\model\PaymentCheckout;
 use App\model\ProductCart;
 use App\model\Shipment;
+use App\model\Voucher;
 use App\Seller;
 
 use Validator;
 use Auth;
+
+use Carbon\Carbon;
 
 class SellerController extends Controller
 {
@@ -180,6 +183,32 @@ class SellerController extends Controller
         return redirect()->action('Backend\SellerController@order');
     }
 
+    // คูปองเงินสด
+    public function voucher(Request $request){
+        $NUM_PAGE = 50;
+        $vouchers = Voucher::paginate($NUM_PAGE);
+        $page = $request->input('page');
+        $page = ($page != null)?$page:1;
+        return view('backend/seller/voucher/voucher')->with('vouchers',$vouchers)
+                                                     ->with('page',$page)
+                                                     ->with('NUM_PAGE',$NUM_PAGE);
+    }
+    public function updateVoucher(Request $request){
+        $validator = Validator::make($request->all(), $this->rules_createVoucher(), $this->messages_createVoucher());
+        if($validator->passes()) {
+            $id = $request->get('id');
+            $voucher = Voucher::findOrFail($id);
+            $voucher->date = Carbon::now();
+            $voucher->update($request->all());
+            $request->session()->flash('alert-success', 'อัพเดตข้อมูลสำเร็จ');
+            return redirect()->action('Backend\SellerController@voucher');
+        }
+        else {
+            $request->session()->flash('alert-danger', 'อัพเดตข้อมูลไม่สำเร็จ');
+            return back()->withErrors($validator)->withInput();
+        }
+    }
+
     public function messages_updateMenu() {
         return [
             'thai_name.required' => 'กรุณากรอกชื่อเมนูอาหาร (ภาษาไทย)',
@@ -208,6 +237,20 @@ class SellerController extends Controller
     public function messages_updateMenuPricePromotion() {
         return [
             'promotion_price.required' => 'กรุณากรอกราคาอาหารโปรโมชั่น',
+        ];
+    }
+
+    public function rules_createVoucher() {
+        return [
+            'serialnumber' => 'required',
+            'creator' => 'required',
+        ];
+    }
+
+    public function messages_createVoucher() {          
+        return [
+            'serialnumber.required' => 'กรุณากรอกหมายเลขหน้าบัตร',
+            'creator.required' => 'กรุณากรอกชื่อผู้ขายคูปอง',
         ];
     }
 }

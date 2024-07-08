@@ -32,12 +32,12 @@
                                 <td>{{$value->subject}}</td>
                                 <td>
                                     <a type="button" data-toggle="modal" data-target="#ModalMessage{{$value->id}}">
-                                        <span style="color:blue; font-family: 'Mitr' !important;"> ดูข้อความ</span>
+                                        <span style="color:blue; font-family: 'Noto Sans Thai' !important;"> ดูข้อความ</span>
                                     </a>
                                 </td>
                                 <td>
                                     <a type="button" data-toggle="modal" data-target="#ModalAnswer{{$value->id}}">
-                                        <span style="color:blue; font-family: 'Mitr' !important;"> ดูข้อความตอบกลับ</span> 
+                                        <span style="color:blue; font-family: 'Noto Sans Thai' !important;"> ดูข้อความตอบกลับ</span> 
                                     </a>
                                 </td>
                                 @if($value->answer_message == null)
@@ -68,12 +68,12 @@
             <div class="modal-body">
                 <div class="form-group row">
                     <div class="col-md-12">
-                        <textarea cols="50" rows="5" class="form-control" style="font-family: 'Mitr'; font-size:14px;">{{$value->message}}</textarea>
+                        <textarea cols="50" rows="5" class="form-control" style="font-family: 'Noto Sans Thai'; font-size:14px;">{{$value->message}}</textarea>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" style="font-family: 'Mitr';">ปิด</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" style="font-family: 'Noto Sans Thai';">ปิด</button>
             </div>
         </div>
     </div>
@@ -90,12 +90,12 @@
             <div class="modal-body">
                 <div class="form-group row">
                     <div class="col-md-12">
-                        <textarea cols="50" rows="5" class="form-control" style="font-family: 'Mitr'; font-size:14px;">{{$value->answer_message}}</textarea>
+                        <textarea cols="50" rows="5" class="form-control" style="font-family: 'Noto Sans Thai'; font-size:14px;">{{$value->answer_message}}</textarea>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal" style="font-family: 'Mitr';">ปิด</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" style="font-family: 'Noto Sans Thai';">ปิด</button>
             </div>
         </div>
     </div>

@@ -74,8 +74,7 @@
             style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     @include('/frontend/layouts/navbar/navbar')
-    @yield('content')
-    @include('/frontend/layouts/footer/footer')
+    @yield('content')   
     @include('/frontend/layouts/js/js')
 </body>
 

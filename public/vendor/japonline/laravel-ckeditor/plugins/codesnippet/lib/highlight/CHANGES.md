@@ -38,7 +38,7 @@ Another technically compatible change that nonetheless might need attention:
 
 - The structure of the NPM package was refactored, so if you had installed it
   locally, you'll have to update your paths. The usual `require('highlight.js')`
-  works as before. This is contributed by [Dmitry Smolin][].
+  works as before. This is contributed by [DNoto Sans Thaiy Smolin][].
 
 New features:
 
@@ -86,7 +86,7 @@ Miscelleanous improvements:
 [Carlo Kok]: https://github.com/carlokok
 [Bram de Haan]: https://github.com/atelierbram
 [Daniel Kvasnička]: https://github.com/dkvasnicka
-[Dmitry Smolin]: https://github.com/dimsmol
+[DNoto Sans Thaiy Smolin]: https://github.com/dimsmol
 [Jeremy Hull]: https://github.com/sourrust
 [Seongwon Lee]: https://github.com/dlimpid
 [Jan T. Sott]: https://github.com/idleberg
@@ -202,12 +202,12 @@ Other notable changes:
 - Corrected many corner cases in CSS.
 - Dropped Python 2 version of the build tool.
 - Implemented building for the AMD format.
-- Updated Rust keywords (thanks to [Dmitry Medvinsky][]).
+- Updated Rust keywords (thanks to [DNoto Sans Thaiy Medvinsky][]).
 - Literal regexes can now be used in language definitions.
 - CoffeeScript highlighting is now significantly more robust and rich due to
   input from [Cédric Néhémie][].
 
-[Dmitry Medvinsky]: https://github.com/dmedvinsky
+[DNoto Sans Thaiy Medvinsky]: https://github.com/dmedvinsky
 [Cédric Néhémie]: https://github.com/abe33
 
 
@@ -374,7 +374,7 @@ New languages are:
 
 - Haskell by [Jeremy Hull][sourrust]
 - Erlang in two varieties — module and REPL — made collectively by [Nikolay
-  Zakharov][desh], [Dmitry Kovega][arhibot] and [Sergey Ignatov][ignatov]
+  Zakharov][desh], [DNoto Sans Thaiy Kovega][arhibot] and [Sergey Ignatov][ignatov]
 - Objective C by [Valerii Hiora][vhbit]
 - Vala by [Antono Vasiljev][antono]
 - Go by [Stephan Kountso][steplg]
@@ -724,7 +724,7 @@ Many thanks to you all!
 ## Version 3.1
 
 Three new languages are available: Django templates, SQL and Axapta. The latter
-two are sent by [Dmitri Roudakov][1]. However I've almost entirely rewrote an
+two are sent by [DNoto Sans Thaii Roudakov][1]. However I've almost entirely rewrote an
 SQL definition but I'd never started it be it from the ground up :-)
 
 The engine itself has got a long awaited feature of grouping keywords
