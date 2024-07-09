@@ -130,6 +130,7 @@
                                         <th>วันที่ออกคูปอง</th>
                                         <th>วันที่ใช้งานคูปอง</th>
                                         <th>ผู้ออกคูปอง</th>
+                                        <th>สาขาที่ใช้</th>
                                         <th>สถานะ</th>
                                         <th></th>
                                     </tr>
@@ -143,6 +144,13 @@
                                             $branch = DB::table('stores')
                                                 ->where('id', $value->branch_id)
                                                 ->value('branch');
+                                            $store_id = DB::table('sellers')
+                                                ->where('id', $value->staff_branch_id)
+                                                ->value('store_id');
+                                            $store_name = DB::table('stores')->where('id', $store_id)->value('name');
+                                            $store_branch = DB::table('stores')
+                                                ->where('id', $store_id)
+                                                ->value('branch');
                                             $amount_format = number_format($value->amount);
                                         @endphp
                                         <tr>
@@ -153,6 +161,7 @@
                                             <td>{{ $value->created_at }}</td>
                                             <td>{{ $value->date }}</td>
                                             <td>{{ $value->creator }}</td>
+                                            <td>{{ $store_name }} {{ $store_branch }}</td>
                                             @if ($value->status == 'พร้อมใช้งาน')
                                                 <td>{{ $value->status }}</td>
                                             @elseif($value->status == 'ยังไม่เปิดใช้งาน')

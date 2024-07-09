@@ -50,6 +50,7 @@
                                         <th>ร้านค้า</th>
                                         <th>วันที่ออกคูปอง</th>
                                         <th>วันที่ใช้งานคูปอง</th>
+                                        <th>สาขาที่ใช้</th>
                                         <th>สถานะ</th>
                                         <th></th>
                                     </tr>
@@ -63,6 +64,13 @@
                                             $branch = DB::table('stores')
                                                 ->where('id', $value->branch_id)
                                                 ->value('branch');
+                                            $store_id = DB::table('sellers')
+                                                ->where('id', $value->staff_branch_id)
+                                                ->value('store_id');
+                                            $store_name = DB::table('stores')->where('id', $store_id)->value('name');
+                                            $store_branch = DB::table('stores')
+                                                ->where('id', $store_id)
+                                                ->value('branch');
                                             $amount_format = number_format($value->amount);
                                         @endphp
                                         <tr>
@@ -72,6 +80,7 @@
                                             <td>{{ $name }} {{ $branch }}</td>
                                             <td>{{ $value->created_at }}</td>
                                             <td>{{ $value->date }}</td>
+                                            <td>{{ $store_name }} {{ $store_branch }}</td>
                                             @if ($value->status == 'พร้อมใช้งาน')
                                                 <td>{{ $value->status }}</td>
                                             @elseif($value->status == 'ยังไม่เปิดใช้งาน')
@@ -79,11 +88,15 @@
                                             @elseif($value->status == 'ใช้งานแล้ว')
                                                 <td style="color: green;">{{ $value->status }}</td>
                                             @endif
-                                            <td>
-                                                <a data-toggle="modal" data-target="#updateStatus{{ $value->id }}">
-                                                    <i class="fas fa-edit" style="color:#31CE36;"></i>
-                                                </a>
-                                            </td>
+                                            @if ($value->status == 'ใช้งานแล้ว')
+                                            <td></td>
+                                            @else
+                                                <td>
+                                                    <a data-toggle="modal" data-target="#updateStatus{{ $value->id }}">
+                                                        <i class="fas fa-edit" style="color:#31CE36;"></i>
+                                                    </a>
+                                                </td>
+                                            @endif
                                         </tr>
                                         <!-- Modal -->
                                         <div class="modal fade" id="updateStatus{{ $value->id }}" tabindex="-1"
@@ -143,6 +156,8 @@
                                                                     <input type="hidden" name="id"
                                                                         value="{{ $value->id }}">
                                                                     <input type="hidden" name="status" value="ใช้งานแล้ว">
+                                                                    <input type="hidden" name="staff_branch_id"
+                                                                        value="{{ Auth::guard('seller')->user()->id }}">
                                                                     <button type="submit"
                                                                         class="btn btn-primary">ยืนยันการใช้คูปองเงินสด</button>
                                                                 </div>

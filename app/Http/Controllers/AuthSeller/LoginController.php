@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 use App\Seller;
-use App\Model\Store;
+use App\model\Store;
 
 class LoginController extends Controller
 {

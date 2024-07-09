@@ -199,6 +199,7 @@ class SellerController extends Controller
             $id = $request->get('id');
             $voucher = Voucher::findOrFail($id);
             $voucher->date = Carbon::now();
+            $voucher->staff_branch_id = $request->get('staff_branch_id');
             $voucher->update($request->all());
             $request->session()->flash('alert-success', 'อัพเดตข้อมูลสำเร็จ');
             return redirect()->action('Backend\SellerController@voucher');
