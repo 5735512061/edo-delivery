@@ -48,6 +48,11 @@ Route::group(['prefix' => '/'], function(){
 
     // voucher-card
     Route::get('/voucher-card', 'Frontend\EdoController@voucherCard');
+
+    // Audit Checklist
+    Route::get('/audit-check-list', 'Frontend\AuditController@auditCheckList');
+    Route::get('/audit-check-list/{branch_id}', 'Frontend\AuditController@auditCheckListByBranch');
+    Route::post('/checklist-audit', 'Frontend\AuditController@checkListAudit');
 });
 
 // ลูกค้า
@@ -215,6 +220,17 @@ Route::group(['prefix' => 'admin'], function(){
     Route::get('/open-pdfResume/{id}','Backend\AdminController@openPdfResume');
     Route::get('/url-apply-work','Backend\AdminController@urlApplyWork');
     Route::post('/url-apply-work','Backend\AdminController@urlApplyWorkPost');
+
+    // checklist audit
+    Route::get('/form-checklist-audit','Backend\AdminController@formChecklistAudit');
+    Route::post('/create-form-checklist-audit','Backend\\AdminController@createFormChecklistAudit');
+    
+    Route::post('/edit-form-checklist-sop','Backend\\AdminController@editFormChecklistSOP');
+    Route::get('/title-sop/{branch_id}','Backend\\AdminController@titleSOP');
+    Route::post('/create-title-sop','Backend\\AdminController@createTitleSOP');
+    Route::post('/edit-title-sop','Backend\\AdminController@editTitleSOP');
+    Route::get('/checklist-sop/{branch_id}','Backend\\AdminController@checklistSOP');
+    Route::get('/table-list-sop/{branch_id}','Backend\\AdminController@tableListSOP');
 
 });
 

@@ -159,7 +159,7 @@ class CartController extends Controller
                 $order->shipment_id = $shipment_id;
                 $order->product_cart_id = $value->id;
                 $order->date = $date;
-                $order->coupon_id = $coupon_id;
+                $order->coupon_id = $coupon_id; 
                 $order->save();
             }
 

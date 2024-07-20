@@ -28,6 +28,7 @@ use App\model\Voucher;
 use App\model\SpecialMenu;
 use App\model\ApplyWork;
 use App\model\UrlApplyWork;
+use App\model\Audit;
 
 use App\Customer;
 use App\Seller;
@@ -862,6 +863,23 @@ class AdminController extends Controller
             $request->session()->flash('alert-danger', 'อัพเดตข้อมูลไม่สำเร็จ');
             return back()->withErrors($validator)->withInput();
         }
+    }
+
+    public function formChecklistAudit(Request $request) { 
+        $NUM_PAGE = 20;
+        $checklists = Audit::get();
+        $page = $request->input('page');
+        $page = ($page != null)?$page:1;
+        return view('backend/admin/audit/create-form-audit')->with('NUM_PAGE',$NUM_PAGE)
+                                                            ->with('page',$page)
+                                                            ->with('checklists',$checklists);
+    }
+
+    public function createFormChecklistAudit(Request $request) {
+        $checklist = $request->all();
+        $checklist = Audit::create($checklist);
+        $request->session()->flash('alert-success', 'บันทึกข้อมูลสำเร็จ');
+        return back();
     }
 
     /////////////////////////////// validate ///////////////////////////////

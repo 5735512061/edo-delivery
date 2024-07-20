@@ -222,6 +222,23 @@
                         </ul>
                     </div>
                 </li>
+
+                <li class="nav-item">
+                    <a data-toggle="collapse" href="#audit">
+                        <i class="fas fa-file"></i>
+                        <p>Audit Checklist</p>
+                        <span class="caret"></span>
+                    </a>
+                    <div class="collapse" id="audit">
+                        <ul class="nav nav-collapse">
+                            <li>
+                                <a href="{{ url('/admin/form-checklist-audit') }}">
+                                    <span class="sub-item">รายการตรวจเช็ค</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
             </ul>
         </div>
     </div>
