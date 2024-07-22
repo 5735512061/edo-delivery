@@ -61,6 +61,7 @@
                                     </tbody>
                                 @endforeach
                             </table>
+                            <textarea name="comment_detail" cols="30" rows="5" class="form-control" placeholder="ข้อเสนอแนะอื่นๆ"></textarea>
                         </div><br>
                     @endif
                     <input type="hidden" name="branch_id" value="{{ $branch_id }}">

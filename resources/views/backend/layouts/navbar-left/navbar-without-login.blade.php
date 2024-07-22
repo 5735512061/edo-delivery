@@ -25,7 +25,7 @@
                 </li>
                 <li class="nav-item">
                     <a data-toggle="collapse" href="#audit">
-                        <i class="fas fa-th-list"></i>
+                        <i class="fas fa-list-alt"></i>
                         <p>ผลการตรวจเช็ค Audit</p>
                         <span class="caret"></span>
                     </a>
@@ -36,7 +36,7 @@
                         <ul class="nav nav-collapse">
                             @foreach ($branchs as $branch => $value)
                                 <li>
-                                    <a href="{{ url('audit-check-list') }}/{{ $value->id }}">
+                                    <a href="{{ url('result-audit-check-list') }}/{{ $value->id }}">
                                         <span class="sub-item">{{ $value->name }} {{ $value->branch }}</span>
                                     </a>
                                 </li>

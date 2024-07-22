@@ -88,7 +88,6 @@
                                     <th>ข้อที่</th>
                                     <th>รายละเอียด</th>
                                     <th>สถานะ</th>
-                                    <th></th>
                                 </tr>
                             </thead>
                             @foreach ($checklists as $checklist => $value)
@@ -103,22 +102,6 @@
                                         <td>{{ $value->number }}</td>
                                         <td>{{ $value->list }}</td>
                                         <td>{{ $value->status }}</td>
-                                        <td>
-                                            <div class="dropdown">
-                                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow"
-                                                    data-bs-toggle="dropdown">
-                                                    <i class="bx bx-dots-vertical-rounded"></i>
-                                                </button>
-                                                <div class="dropdown-menu">
-                                                    <a data-bs-toggle="modal"
-                                                        data-bs-target="#backDropModal{{ $value->id }}"
-                                                        class="dropdown-item" data-bs-toggle="modal"
-                                                        data-bs-target="#backDropModal">
-                                                        <i class="bx bx-edit-alt me-1"></i>แก้ไขข้อมูล
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </td>
                                     </tr>
                                 </tbody>
                             @endforeach

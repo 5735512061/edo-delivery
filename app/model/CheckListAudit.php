@@ -9,7 +9,7 @@ class CheckListAudit extends Model
 	protected $table = 'checklist_audits';
 
 	protected $fillable = [
-    	'branch_id', 'list_id', 'checklist', 'comment', 'image', 'date'
+    	'branch_id', 'list_id', 'checklist', 'comment', 'image', 'date', 'comment_detail'
     ];
 
     protected $primaryKey = 'id';

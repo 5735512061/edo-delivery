@@ -53,6 +53,10 @@ Route::group(['prefix' => '/'], function(){
     Route::get('/audit-check-list', 'Frontend\AuditController@auditCheckList');
     Route::get('/audit-check-list/{branch_id}', 'Frontend\AuditController@auditCheckListByBranch');
     Route::post('/checklist-audit', 'Frontend\AuditController@checkListAudit');
+    Route::get('/result-audit-check-list/{branch_id}', 'Frontend\AuditController@resultAuditCheckListByBranch');
+    Route::get('/result-audit-by-month/{branch_id}/{year}', 'Frontend\AuditController@resultAuditByYear');
+    Route::get('/result-audit-by-date/{branch_id}/{year}/{month}', 'Frontend\AuditController@resultAuditByMonth');
+    Route::get('/result-audit-detail/{branch_id}/{date}', 'Frontend\AuditController@resultAuditDetail');
 });
 
 // ลูกค้า

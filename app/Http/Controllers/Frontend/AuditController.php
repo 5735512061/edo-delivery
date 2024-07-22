@@ -7,7 +7,9 @@ use App\Http\Controllers\Controller;
 
 use App\model\Audit;
 use App\model\CheckListAudit;
+
 use Validator;
+use DB;
 
 class AuditController extends Controller
 {
@@ -39,12 +41,14 @@ class AuditController extends Controller
                 $list_id = $key;
                 $checklist = $value;
                 $date = $request->get('date');
+                $comment_detail = $request->get('comment_detail');
 
                 $audit_checklist = new CheckListAudit;
                 $audit_checklist->branch_id = $branch_id;
                 $audit_checklist->list_id = $list_id;
                 $audit_checklist->checklist = $checklist;
                 $audit_checklist->date = $date;
+                $audit_checklist->comment_detail = $comment_detail;
                 for($i=0; $i<count($comments); $i++) {
                     $audit_checklist->comment = $comments[$key];
                 }
@@ -124,6 +128,67 @@ class AuditController extends Controller
         //     $request->session()->flash('alert-danger', 'บันทึกข้อมูลไม่สำเร็จ กรุณาตรวจสอบข้อมูลให้ถูกต้องครบถ้วน');
         //     return back()->withErrors($validator)->withInput(); 
         // }
+    }
+
+    public function resultAuditCheckListByBranch(Request $request, $branch_id) {
+        $NUM_PAGE = 20;
+        $years = checkListAudit::select(DB::raw('YEAR(created_at) year'))
+                            ->where('branch_id',$branch_id)
+                            ->groupBy('year')
+                            ->orderBy('id','asc')
+                            ->get();
+        $page = $request->input('page');
+        $page = ($page != null)?$page:1;
+        return view('frontend/audit/result-audit')->with('NUM_PAGE',$NUM_PAGE)
+                                                  ->with('page',$page)
+                                                  ->with('branch_id',$branch_id)
+                                                  ->with('years',$years);
+    }
+
+    public function resultAuditByYear(Request $request, $branch_id, $year) {
+        $NUM_PAGE = 20;
+        $months = checkListAudit::select(DB::raw('MONTH(created_at) month'))
+                            ->where('branch_id',$branch_id)
+                            ->groupBy('month')
+                            ->orderBy('id','asc')
+                            ->get();
+        $page = $request->input('page');
+        $page = ($page != null)?$page:1;
+        return view('frontend/audit/result-audit-by-month')->with('NUM_PAGE',$NUM_PAGE)
+                                                          ->with('page',$page)
+                                                          ->with('branch_id',$branch_id)
+                                                          ->with('months',$months)
+                                                          ->with('year',$year);
+    }
+
+    public function resultAuditByMonth(Request $request, $branch_id, $year, $month) {
+        $NUM_PAGE = 20;
+        $days = checkListAudit::where('branch_id',$branch_id)
+                            ->groupBy('date')
+                            ->orderBy('id','asc')
+                            ->get();
+        $page = $request->input('page');
+        $page = ($page != null)?$page:1;
+        return view('frontend/audit/result-audit-by-date')->with('NUM_PAGE',$NUM_PAGE)
+                                                          ->with('page',$page)
+                                                          ->with('branch_id',$branch_id)
+                                                          ->with('days',$days)
+                                                          ->with('month',$month)
+                                                          ->with('year',$year);
+    }
+
+    public function resultAuditDetail(Request $request, $branch_id, $date) {
+        $NUM_PAGE = 20;
+        $results = checkListAudit::where('branch_id',$branch_id)
+                                 ->where('date',$date)
+                                 ->orderBy('id','asc')->paginate($NUM_PAGE);
+        $page = $request->input('page');
+        $page = ($page != null)?$page:1;
+        return view('frontend/audit/result-audit-detail')->with('NUM_PAGE',$NUM_PAGE)
+                                                         ->with('page',$page)
+                                                         ->with('branch_id',$branch_id)
+                                                         ->with('date',$date)
+                                                         ->with('results',$results);
     }
 
     // Validate
